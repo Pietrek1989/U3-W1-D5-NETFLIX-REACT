@@ -1,0 +1,339 @@
+body {
+  background-color: #141414;
+  font-family: "NetflixSans";
+  animation: fadein 1.5s;
+  animation-fill-mode: both;
+  box-sizing: border-box;
+  color: white;
+}
+
+h1 , h2 , h3 , h4 , h5 , h6 {
+  font-family: "NetflixSans";
+}
+@font-face {
+  font-family: "NetflixSans";
+  src: url(fonts/NetflixSans-Regular.otf);
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+button {
+  border-radius: 0;
+}
+
+h3 {
+  color: white;
+}
+.navbar {
+  background-color: #141414;
+
+}
+.navbar a {
+  color: #6c757d!important;
+  font-weight: bolder;
+
+}
+
+#active {
+  color: white !important;
+}
+  
+
+i {
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  width: 10%;
+  bottom: -30px;
+}
+
+
+
+
+.card-body {
+  padding: 0;
+  border: none;
+}
+
+.social-icons i {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+}
+.no-wrap{
+  flex-wrap: nowrap;
+}
+
+.info-row2 span {
+padding-inline: 5px;
+}
+
+
+.infos-container {
+
+display: none;
+}
+
+.carousel-hover {
+transition: 0.5s ease-in-out;
+}
+#myCarousel {
+margin-top: 50px;
+}
+
+.carousel-hover:hover .infos-container{
+width: 100%;
+position: absolute;
+display: block;
+cursor: pointer;
+background-color: #141414;
+z-index: 11;
+}
+
+.carousel-inner {
+position: static;
+overflow: initial;
+}
+#myCarousel {
+position: relative;
+}
+.carousel-hover:hover{
+transform: scale(1.3);
+z-index: 10;
+cursor: pointer;
+position: relative;
+top: 18px;
+
+
+
+}
+
+/* User */
+
+
+.circle {
+position: relative;
+border-radius: 50%;
+background-color: transparent;
+border: solid white 1px;
+width: 46px;
+height: 46px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 0.5em;
+}
+
+.circle i {
+position: absolute;
+bottom: 4px;
+right: 11px;
+font-size: 1.5em;
+}
+.circle .bi-arrow-down {
+bottom: -2px;
+}
+.play-circle {
+background-color: white;
+}
+.bi-play-fill {
+color: black;
+}
+
+.info-row2 span {
+padding-inline: 4px;
+}
+.carousel-item:hover {
+cursor: pointer;
+}
+
+#user-window .h1 {
+border-bottom: solid 1px rgb(255 255 255 / 22%);
+}
+
+.user-wrapper img {
+width: 100%;
+}
+
+.input-group .input-group-prepend button {
+background-color: black;
+border: solid 1px white;
+color: white;
+}
+
+#user-window  .container {
+max-width: 40vw;
+color: #bec0c2;
+}
+#user-window button {
+padding: 0.5rem 1em;
+margin-right: 0.5rem;
+}
+#user-window .btn-light {
+background: transparent;
+color: rgba(255, 255, 255, 0.421);
+border: solid 1px rgba(255, 255, 255, 0.421);
+}
+
+#user-window div:last-child .btn-light:first-child {
+background-color: white;
+color: black;
+font-weight: bold;
+}
+
+.user-body {
+height: 100vh;
+}
+.form-check-input:checked {
+background-color: #6c757d;
+}
+
+@media (max-width: 768px) {
+#user-window  .container {
+  max-width: 80vw;
+}
+} 
+h1 {
+color: white;
+}
+.last-row {
+margin-left: 0!important;
+}
+
+/* Setting */
+
+#settings-body {
+background-color: #F3F3F3;
+max-height: 100vh;
+font-size: 0.9rem;
+
+}
+
+#settings .container {
+padding-top: 1em;
+width: 60vw;
+
+color: black;
+}
+@media (max-width: 1100px) {
+#settings  .container {
+  width: 90vw;
+}
+.d-flex { 
+  flex-direction: column;
+}
+.pop-up {
+  flex-direction: row;
+}
+#settings-body {
+  font-size: 0.7rem
+}
+#settings h5 {
+  font-size: 0.8rem;
+}
+} 
+
+@media (max-width: 768px) {
+
+#settings-body {
+  font-size: 0.5rem
+}
+#settings h5 {
+  font-size: 0.6rem;
+}
+}
+
+#settings p {
+margin-bottom: 0.3rem;
+}
+#settings h3,h4,h5,h6 {
+font-size: 1rem;
+color: rgba(121, 116, 116, 0.851);;
+}
+#settings button {
+background-color: #d0cccca3;
+border: none;
+padding-block: 5px;
+width: 70%;
+}
+#settings hr {
+margin: 0.5rem;
+}
+.flex-rows {
+flex-direction: row;
+display: flex;
+justify-content: space-between;
+}
+.bi-paypal {
+color: black;
+}
+
+/* Backoffice */
+
+#backoffice .btn {
+font-size: 0.8rem;
+}
+
+.btn-get-movies {
+width: 200px;;
+}
+.img-small-cover {
+height: 100px;
+width: 75px;
+}
+#list-movies button {
+height: 20%;
+}
+#list-movies {
+display: flex;
+justify-content: space-between;
+}
+#body-ation .img-fluid {
+height: 35vh;
+}
+
+.carousel {
+  background-color:#141414;
+
+}
+.carousel-slide {
+  
+}
+.carousel-item {
+  background-color:#141414;
+  display: block;
+
+}
+.carousel-inner {
+  display: inline-block;
+  width: 100vw;
+
+}
+.carousel-item img {
+  display: block;
+  height: 40vh;
+}
+.carousel .carousel-indicators {
+  margin-inline: 0;
+  padding-inline: 0;
+  width: 100%;
+}
+
+.App {
+  background-color: #141414;
+}
+.footer {
+  background-color: #141414;
+}
+
+#section-name-lower{
+  color: white;
+}
