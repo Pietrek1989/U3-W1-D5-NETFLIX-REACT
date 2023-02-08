@@ -101,7 +101,7 @@ const MovieDetails = () => {
                       </div>
                       <p className="mb-1 text-light">{comment.comment}</p>
                       <small className="text-light text-muted">
-                        Review by {comment.author}
+                        Review by <strong>{comment.author}</strong>
                       </small>
                     </ListGroupItem>
                   );
