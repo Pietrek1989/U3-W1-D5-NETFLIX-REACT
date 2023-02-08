@@ -78,7 +78,6 @@ const CarouselRow = (props) => {
         </Carousel.Item>
 
         <Carousel.Item className="section" id="section3">
-          =
           {movies.map((singleMovie) => {
             return (
               <div className="item" key={singleMovie.imdbID}>

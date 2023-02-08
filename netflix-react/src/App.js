@@ -8,6 +8,7 @@ import Footer from "./Components/Footer";
 import ProfilePage from "./Components/ProfilePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MovieDetails from "./Components/MovieDetails";
+import NotFound from "./Components/NotFound.jsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             element={<ProfilePage logo={logo} avatar={avatar}></ProfilePage>}
             path="/profile"
           />
+          <Route element={<NotFound />} path="*" />
         </Routes>
         <Footer></Footer>
       </div>
