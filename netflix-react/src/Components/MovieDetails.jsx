@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import ErrorNetflix from "./ErrorNetflix";
 import LoadingNetflix from "./LoadingNetflix";
 import Comments from "./Comments";
-import AddComment from "./AddComment";
 
 const MovieDetails = () => {
   const link = "http://www.omdbapi.com/?apikey=4f6eac88&i=";
