@@ -32,7 +32,7 @@ const NavBar = (props) => {
         </Nav>
         <Nav>
           <img src={props.avatar} alt="avatar" height="32" width="32" />
-          <NavDropdown id="collasible-nav-dropdown " variant="light">
+          <NavDropdown id="collasible-nav-dropdown " variant="dark">
             <Link to="/profile">
               <NavDropdown.Item href="#action/3.1">Account</NavDropdown.Item>
             </Link>
@@ -54,6 +54,7 @@ const NavBar = (props) => {
                 </svg>
               </InputGroup.Text>
               <Form.Control
+                id="search-field"
                 aria-label="Search"
                 aria-describedby="inputGroup-sizing-sm"
                 placeholder={search}
