@@ -261,6 +261,9 @@ h1 {
   #settings h5 {
     font-size: 0.8rem;
   }
+  .delete-button {
+    width: 80px;
+  }
 }
 
 @media (max-width: 768px) {
