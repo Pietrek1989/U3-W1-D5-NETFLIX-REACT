@@ -17,16 +17,18 @@ function App() {
         <div>
           <NavBar logo={logo} avatar={avatar}></NavBar>
         </div>
-        <Routes>
-          <Route element={<CarouselParent />} path="/" />
-          <Route element={<CarouselParent />} path="/movies" />
-          <Route element={<MovieDetails />} path="/details/:movieId" />
-          <Route
-            element={<ProfilePage logo={logo} avatar={avatar}></ProfilePage>}
-            path="/profile"
-          />
-          <Route element={<NotFound />} path="*" />
-        </Routes>
+        <div>
+          <Routes>
+            <Route element={<CarouselParent />} path="/" />
+            <Route element={<CarouselParent />} path="/movies" />
+            <Route element={<MovieDetails />} path="/details/:movieId" />
+            <Route
+              element={<ProfilePage logo={logo} avatar={avatar}></ProfilePage>}
+              path="/profile"
+            />
+            <Route element={<NotFound logo={logo} />} path="*" />
+          </Routes>
+        </div>
         <Footer></Footer>
       </div>
     </BrowserRouter>
