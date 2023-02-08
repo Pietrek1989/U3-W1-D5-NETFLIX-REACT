@@ -70,13 +70,13 @@ const MovieDetails = () => {
     <>
       {isError && <ErrorNetflix errorMessage={errorMessage}></ErrorNetflix>}
       <h1 className="text-light font-italic mb-5">{movies.Title}</h1>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center" id="movie-detail-img">
         {isLoading ? (
           <Col xs={8} md={6} className="d-flex justify-content-center">
             <LoadingNetflix></LoadingNetflix>
           </Col>
         ) : (
-          <Col xs={8} md={6} className="d-flex justify-content-center">
+          <Col xs={8} md={6} className="d-flex justify-content-center ">
             <img className="movie-cover" src={movies.Poster} alt="poster" />
           </Col>
         )}

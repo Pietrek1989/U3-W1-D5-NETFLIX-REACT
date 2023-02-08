@@ -453,3 +453,6 @@ h1 {
   background-color: #141414 !important;
   border: solid 1px #3e3b3b8c !important;
 }
+#movie-detail-img {
+  margin-inline: auto;
+}
