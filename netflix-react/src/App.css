@@ -173,7 +173,10 @@ i {
   font-size: 0.8rem;
 }
 .info-row3 li {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+}
+.info-row3 ul {
+  flex-direction: column !important;
 }
 .carousel-item:hover {
   cursor: pointer;
@@ -350,7 +353,7 @@ h6 {
   position: static;
   display: inline-block;
   width: 100vw;
-  overflow: initial;
+  overflow: visible !important;
 }
 .carousel-item img {
   display: block;
@@ -486,4 +489,9 @@ h1 {
   width: 15px !important;
   height: 15px !important;
   border-radius: 50%;
+}
+
+.fab {
+  font-size: 2em;
+  color: yellow;
 }

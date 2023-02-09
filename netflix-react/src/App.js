@@ -9,6 +9,7 @@ import ProfilePage from "./Components/ProfilePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MovieDetails from "./Components/MovieDetails";
 import NotFound from "./Components/NotFound.jsx";
+import CarouselParentTvShows from "./Components/CarouselParentTvShows";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route element={<CarouselParent />} path="/" />
             <Route element={<CarouselParent />} path="/movies" />
             <Route element={<MovieDetails />} path="/details/:movieId" />
+            <Route element={<CarouselParentTvShows />} path="/TV-Shows"></Route>
             <Route
               element={<ProfilePage logo={logo} avatar={avatar}></ProfilePage>}
               path="/profile"

@@ -26,8 +26,13 @@ const NavBar = (props) => {
               Movies
             </div>
           </Link>
-          <Link>
-            <div className="nav-link">Recently Added</div>
+          <Link to="/TV-Shows">
+            <div
+              className="nav-link"
+              id={location.pathname === "/TV-Shows" ? "active" : ""}
+            >
+              TV-Shows
+            </div>
           </Link>
         </Nav>
         <Nav>

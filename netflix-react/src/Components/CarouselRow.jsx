@@ -76,16 +76,16 @@ const CarouselRow = (props) => {
                       </li>
                     </div>
                   </div>
-                  <div className="info-row2 py-2">
-                    <span className="text-success">98% Match</span>
+                  <div className="info-row2 py-2 d-flex justify-content-around flex-row">
+                    {/* <span className="text-success">98% Match</span> */}
                     <span className="border border-ligh">16+</span>
-                    <span>4 seasons</span>
+                    <span>{singleMovie.Year}</span>
                     <span>
                       <small className="border border-light">HD</small>
                     </span>
                   </div>
                   <div className="info-row3">
-                    <ul className="d-flex py-2 px-0">
+                    <ul className="d-flex py-1 px-0">
                       <li className="mx-3">Emotional</li>
                       <li className="mx-3">Drama</li>
                       <li className="mx-3">Medical</li>
@@ -126,10 +126,10 @@ const CarouselRow = (props) => {
                       </li>
                     </div>
                   </div>
-                  <div className="info-row2 py-2">
-                    <span className="text-success">98% Match</span>
+                  <div className="info-row2 py-2 d-flex justify-content-around flex-row">
+                    {/* <span className="text-success">98% Match</span> */}
                     <span className="border border-ligh">16+</span>
-                    <span>4 seasons</span>
+                    <span>{singleMovie.Year}</span>
                     <span>
                       <small className="border border-light">HD</small>
                     </span>
@@ -178,10 +178,10 @@ const CarouselRow = (props) => {
                       </li>
                     </div>
                   </div>
-                  <div className="info-row2 py-2">
-                    <span className="text-success">98% Match</span>
+                  <div className="info-row2 py-2 d-flex justify-content-around flex-row">
+                    {/* <span className="text-success">98% Match</span> */}
                     <span className="border border-ligh">16+</span>
-                    <span>4 seasons</span>
+                    <span>{singleMovie.Year}</span>
                     <span>
                       <small className="border border-light">HD</small>
                     </span>
