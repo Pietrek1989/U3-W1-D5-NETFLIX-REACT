@@ -39,6 +39,9 @@ button {
 h3 {
   color: white;
 }
+a {
+  text-decoration: none !important;
+}
 .navbar {
   background-color: transparent;
 }
@@ -104,22 +107,17 @@ i {
   flex-wrap: nowrap;
 }
 
-.info-row2 span {
-  padding-inline: 5px;
-}
-
-.infos-container {
-  display: none;
-}
-
 .carousel-hover {
   transition: 0.5s ease-in-out;
 }
 #myCarousel {
   margin-top: 50px;
 }
+.infos-container {
+  display: none;
+}
 
-.carousel-hover:hover .infos-container {
+.item:hover .infos-container {
   width: 100%;
   position: absolute;
   display: block;
@@ -128,10 +126,6 @@ i {
   z-index: 11;
 }
 
-.carousel-inner {
-  position: static;
-  overflow: initial;
-}
 #myCarousel {
   position: relative;
 }
@@ -150,8 +144,8 @@ i {
   border-radius: 50%;
   background-color: transparent;
   border: solid white 1px;
-  width: 46px;
-  height: 46px;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,12 +154,12 @@ i {
 
 .circle i {
   position: absolute;
-  bottom: 4px;
-  right: 11px;
-  font-size: 1.5em;
+  bottom: 2px;
+  right: 6px;
+  font-size: 1em;
 }
 .circle .bi-arrow-down {
-  bottom: -2px;
+  bottom: -5px;
 }
 .play-circle {
   background-color: white;
@@ -176,6 +170,10 @@ i {
 
 .info-row2 span {
   padding-inline: 4px;
+  font-size: 0.8rem;
+}
+.info-row3 li {
+  font-size: 0.8rem;
 }
 .carousel-item:hover {
   cursor: pointer;
@@ -267,6 +265,12 @@ h1 {
   .delete-button {
     width: 80px;
   }
+  .icon-group {
+    flex-direction: row;
+  }
+  .icon-group-left {
+    flex-direction: row;
+  }
 }
 
 @media (max-width: 768px) {
@@ -343,8 +347,10 @@ h6 {
   display: block;
 }
 .carousel-inner {
+  position: static;
   display: inline-block;
   width: 100vw;
+  overflow: initial;
 }
 .carousel-item img {
   display: block;
@@ -395,7 +401,7 @@ h1 {
 .item {
   position: relative;
   padding: 0 2px;
-  transition: duration all;
+  transition: 0.5s all;
 }
 
 .heading {
@@ -462,4 +468,22 @@ h1 {
 }
 #movie-detail-img {
   margin-inline: auto;
+}
+.item:hover {
+  scale: 1.2;
+  z-index: 2;
+}
+#carousel-parent {
+  overflow: hidden;
+}
+
+.wrapper {
+  overflow: visible !important;
+  overflow-wrap: hidden;
+}
+
+.carousel-indicators li {
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50%;
 }

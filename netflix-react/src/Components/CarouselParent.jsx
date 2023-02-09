@@ -7,7 +7,7 @@ const CarouselParent = () => {
     <div>
       <Genre></Genre>
 
-      <div>
+      <div id="carousel-parent">
         <CarouselRow
           titleOf="Harry Potter"
           link="https://www.omdbapi.com/?apikey=4f6eac88&s=harry%20potter"

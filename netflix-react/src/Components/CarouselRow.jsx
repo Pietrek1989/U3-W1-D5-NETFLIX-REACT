@@ -53,9 +53,45 @@ const CarouselRow = (props) => {
                   <img
                     className="movie-cover"
                     src={singleMovie.Poster}
+                    s
                     alt="poster"
                   />
                 </Link>
+                <div className="infos-container p-3">
+                  <div className="d-flex justify-content-between py-2 icon-group">
+                    <div className="d-flex icon-group-left">
+                      <li className="circle play-circle">
+                        <i className="bi bi-play-fill"></i>
+                      </li>
+                      <li className="circle">
+                        <i className="bi bi-plus"></i>
+                      </li>
+                      <li className="circle">
+                        <i className="bi bi-hand-thumbs-up"></i>
+                      </li>
+                    </div>
+                    <div>
+                      <li className="circle">
+                        <i className="bi bi-arrow-down py-2"></i>
+                      </li>
+                    </div>
+                  </div>
+                  <div className="info-row2 py-2">
+                    <span className="text-success">98% Match</span>
+                    <span className="border border-ligh">16+</span>
+                    <span>4 seasons</span>
+                    <span>
+                      <small className="border border-light">HD</small>
+                    </span>
+                  </div>
+                  <div className="info-row3">
+                    <ul className="d-flex py-2 px-0">
+                      <li className="mx-3">Emotional</li>
+                      <li className="mx-3">Drama</li>
+                      <li className="mx-3">Medical</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             );
           })}
@@ -71,6 +107,41 @@ const CarouselRow = (props) => {
                     alt="poster"
                   />
                 </Link>
+                <div className="infos-container p-3">
+                  <div className="d-flex justify-content-between py-2 icon-group">
+                    <div className="d-flex icon-group-left">
+                      <li className="circle play-circle">
+                        <i className="bi bi-play-fill"></i>
+                      </li>
+                      <li className="circle">
+                        <i className="bi bi-plus"></i>
+                      </li>
+                      <li className="circle">
+                        <i className="bi bi-hand-thumbs-up"></i>
+                      </li>
+                    </div>
+                    <div>
+                      <li className="circle">
+                        <i className="bi bi-arrow-down py-2"></i>
+                      </li>
+                    </div>
+                  </div>
+                  <div className="info-row2 py-2">
+                    <span className="text-success">98% Match</span>
+                    <span className="border border-ligh">16+</span>
+                    <span>4 seasons</span>
+                    <span>
+                      <small className="border border-light">HD</small>
+                    </span>
+                  </div>
+                  <div className="info-row3">
+                    <ul className="d-flex py-2 px-0">
+                      <li className="mx-3">Emotional</li>
+                      <li className="mx-3">Drama</li>
+                      <li className="mx-3">Medical</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             );
           })}
@@ -88,6 +159,41 @@ const CarouselRow = (props) => {
                     alt="poster"
                   />
                 </Link>
+                <div className="infos-container p-3">
+                  <div className="d-flex justify-content-between py-2 icon-group">
+                    <div className="d-flex icon-group-left">
+                      <li className="circle play-circle">
+                        <i className="bi bi-play-fill"></i>
+                      </li>
+                      <li className="circle">
+                        <i className="bi bi-plus"></i>
+                      </li>
+                      <li className="circle">
+                        <i className="bi bi-hand-thumbs-up"></i>
+                      </li>
+                    </div>
+                    <div>
+                      <li className="circle">
+                        <i className="bi bi-arrow-down py-2"></i>
+                      </li>
+                    </div>
+                  </div>
+                  <div className="info-row2 py-2">
+                    <span className="text-success">98% Match</span>
+                    <span className="border border-ligh">16+</span>
+                    <span>4 seasons</span>
+                    <span>
+                      <small className="border border-light">HD</small>
+                    </span>
+                  </div>
+                  <div className="info-row3">
+                    <ul className="d-flex py-2 px-0">
+                      <li className="mx-3">Emotional</li>
+                      <li className="mx-3">Drama</li>
+                      <li className="mx-3">Medical</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             );
           })}
