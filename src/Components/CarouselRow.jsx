@@ -57,43 +57,41 @@ const CarouselRow = (props) => {
       setErrorMessage(error);
     }
   };
-  const fetchMovieIMDB = async () => {
-    try {
-      console.log(searchResult);
-      let link = props.link + "?title=" + searchResult;
-      let response = await fetch(link);
+  // const fetchMovieIMDB = async () => {
+  //   try {
+  //     console.log(searchResult);
+  //     let link = props.link + "?title=" + searchResult;
+  //     let response = await fetch(link);
 
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data);
-        setMovies(data);
-        setIsLoading(false);
-      } else {
-        setIsLoading(false);
+  //     if (response.ok) {
+  //       let data = await response.json();
+  //       console.log(data);
+  //       setMovies(data);
+  //       setIsLoading(false);
+  //     } else {
+  //       setIsLoading(false);
 
-        // eslint-disable-next-line no-throw-literal
-        throw response.status + " " + response.statusText;
-      }
-    } catch (error) {
-      setIsLoading(false);
-      setIsError(true);
-      setErrorMessage(error);
-    }
-  };
+  //       // eslint-disable-next-line no-throw-literal
+  //       throw response.status + " " + response.statusText;
+  //     }
+  //   } catch (error) {
+  //     setIsLoading(false);
+  //     setIsError(true);
+  //     setErrorMessage(error);
+  //   }
+  // };
 
   useEffect(() => {
     fetchMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
-    const filteredMovies = movies.filter((movie) =>
-      movie.title.toLowerCase().includes(searchResult.toLowerCase())
-    );
-    if (filteredMovies.includes(searchResult)) {
-      fetchMoviesSearched();
-    } else {
-      fetchMovieIMDB();
-    } // eslint-disable-next-line react-hooks/exhaustive-deps
+    // const filteredMovies = movies.filter((movie) =>
+    //   movie.title.toLowerCase().includes(searchResult.toLowerCase())
+    // );
+    // if (filteredMovies.includes(searchResult)) {
+    fetchMoviesSearched();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchResult]);
 
   return (

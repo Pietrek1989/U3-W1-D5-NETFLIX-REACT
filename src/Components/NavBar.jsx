@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  NavDropdown,
-  Nav,
-  Navbar,
-  InputGroup,
-  Form,
-  Button,
-} from "react-bootstrap";
+import { NavDropdown, Nav, Navbar, InputGroup, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getSearchResultActionAsync } from "../redux/actions";
