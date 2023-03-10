@@ -10,7 +10,7 @@ const NavBar = (props) => {
   return (
     <Navbar collapseOnSelect expand="lg" width="100" className="mr-2">
       <Navbar.Brand onClick={() => navigate("/")}>
-        <img src={props.logo} height="48" alt="netflix-logo" />
+        <img src={props.logo} alt="logo" height="48" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">

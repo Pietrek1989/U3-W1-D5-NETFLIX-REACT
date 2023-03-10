@@ -4,9 +4,9 @@ import ErrorNetflix from "./ErrorNetflix";
 
 const AddComment = (props) => {
   const [commentState, setCommentState] = useState({
-    rate: "1",
+    rate: 1,
     comment: "",
-    elementId: props.id.imdbID,
+    elementId: props.id,
   });
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -14,19 +14,14 @@ const AddComment = (props) => {
   const sendComment = async () => {
     try {
       console.log("I'm about to send this:", commentState);
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/",
-        {
-          method: "POST",
-          body: JSON.stringify(commentState),
+      let response = await fetch("http://localhost:3001/reviews/" + props.id, {
+        method: "POST",
+        body: JSON.stringify(commentState),
 
-          headers: {
-            "Content-Type": "application/json",
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2M5MzM4ZWU3MzczODAwMTUzNzQzNzciLCJpYXQiOjE2NzU2OTA2NjgsImV4cCI6MTY3NjkwMDI2OH0.-AeKZaaujuikJR8lWtgBYVNVji6Wqo1OEgwI9GrBNVU",
-          },
-        }
-      );
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       console.log(response);
       if (response.ok) {
         alert("Comment saved!");
@@ -68,7 +63,7 @@ const AddComment = (props) => {
           onChange={(e) => {
             setCommentState({
               ...commentState,
-              rate: e.target.value,
+              rate: parseInt(e.target.value),
             });
           }}
         />

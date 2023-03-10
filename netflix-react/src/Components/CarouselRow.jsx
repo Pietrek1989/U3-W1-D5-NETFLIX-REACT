@@ -17,7 +17,7 @@ const CarouselRow = (props) => {
       if (response.ok) {
         let data = await response.json();
         console.log(data);
-        setMovies(data.Search);
+        setMovies(data);
         setIsLoading(false);
       } else {
         setIsLoading(false);
@@ -52,7 +52,7 @@ const CarouselRow = (props) => {
                 <Link to={"/details/" + singleMovie.imdbID}>
                   <img
                     className="movie-cover"
-                    src={singleMovie.Poster}
+                    src={singleMovie.poster}
                     s
                     alt="poster"
                   />
@@ -79,7 +79,7 @@ const CarouselRow = (props) => {
                   <div className="info-row2 py-2 d-flex justify-content-around flex-row">
                     {/* <span className="text-success">98% Match</span> */}
                     <span className="border border-ligh">16+</span>
-                    <span>{singleMovie.Year}</span>
+                    <span>{singleMovie.year}</span>
                     <span>
                       <small className="border border-light">HD</small>
                     </span>
@@ -103,7 +103,7 @@ const CarouselRow = (props) => {
                 <Link to={"/details/" + singleMovie.imdbID}>
                   <img
                     className="movie-cover"
-                    src={singleMovie.Poster}
+                    src={singleMovie.poster}
                     alt="poster"
                   />
                 </Link>
@@ -129,7 +129,7 @@ const CarouselRow = (props) => {
                   <div className="info-row2 py-2 d-flex justify-content-around flex-row">
                     {/* <span className="text-success">98% Match</span> */}
                     <span className="border border-ligh">16+</span>
-                    <span>{singleMovie.Year}</span>
+                    <span>{singleMovie.year}</span>
                     <span>
                       <small className="border border-light">HD</small>
                     </span>
@@ -155,7 +155,7 @@ const CarouselRow = (props) => {
                 <Link to={"/details/" + singleMovie.imdbID}>
                   <img
                     className="movie-cover"
-                    src={singleMovie.Poster}
+                    src={singleMovie.poster}
                     alt="poster"
                   />
                 </Link>
@@ -181,7 +181,7 @@ const CarouselRow = (props) => {
                   <div className="info-row2 py-2 d-flex justify-content-around flex-row">
                     {/* <span className="text-success">98% Match</span> */}
                     <span className="border border-ligh">16+</span>
-                    <span>{singleMovie.Year}</span>
+                    <span>{singleMovie.year}</span>
                     <span>
                       <small className="border border-light">HD</small>
                     </span>

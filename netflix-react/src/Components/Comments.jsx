@@ -5,7 +5,7 @@ import LoadingNetflix from "./LoadingNetflix";
 import AddComment from "./AddComment";
 
 const Comments = (props) => {
-  const linkComments = "https://striveschool-api.herokuapp.com/api/comments/";
+  const linkComments = "http://localhost:3001/reviews/";
   let counter = 0;
   const [comments, setComments] = useState([]);
   //   const [currentComment, setComment] = useState([]);
@@ -18,13 +18,7 @@ const Comments = (props) => {
   };
   const fetchComments = async () => {
     try {
-      let response2 = await fetch(linkComments + id, {
-        headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2M5MzM4ZWU3MzczODAwMTUzNzQzNzciLCJpYXQiOjE2NzU2OTA2NjgsImV4cCI6MTY3NjkwMDI2OH0.-AeKZaaujuikJR8lWtgBYVNVji6Wqo1OEgwI9GrBNVU",
-        },
-      });
-
+      let response2 = await fetch(linkComments + id);
       if (response2.ok) {
         let data2 = await response2.json();
         console.log(data2);
@@ -49,16 +43,9 @@ const Comments = (props) => {
   const deleteComment = async (commentId) => {
     try {
       console.log("I'm about to delete this:", commentId);
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/" + commentId,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2M5MzM4ZWU3MzczODAwMTUzNzQzNzciLCJpYXQiOjE2NzU2OTA2NjgsImV4cCI6MTY3NjkwMDI2OH0.-AeKZaaujuikJR8lWtgBYVNVji6Wqo1OEgwI9GrBNVU",
-          },
-        }
-      );
+      let response = await fetch(linkComments + id + "/" + commentId, {
+        method: "DELETE",
+      });
       console.log(response);
       if (response.ok) {
         alert("comment deleted!");
@@ -90,7 +77,7 @@ const Comments = (props) => {
             <ListGroup>
               {comments.map((comment) => {
                 return (
-                  <ListGroupItem className="py-3" key={comment._id}>
+                  <ListGroupItem className="py-3" key={comment.id}>
                     <div className="pb-2">
                       {new Array(comment.rate).fill(null).map(() => (
                         <i className="bi bi-star-fill" key={counter++}></i>
@@ -98,9 +85,9 @@ const Comments = (props) => {
                     </div>
                     <p className="mb-1 text-light">{comment.comment}</p>
                     <div className="d-flex justify-content-between">
-                      <small className="text-light text-muted">
+                      {/* <small className="text-light text-muted">
                         Review by <strong>{comment.author}</strong>
-                      </small>
+                      </small> */}
                       <Button
                         variant="danger"
                         size="sm"
@@ -108,7 +95,7 @@ const Comments = (props) => {
                         type="submit"
                         onClick={() => {
                           //   setComment(comment._id);
-                          deleteComment(comment._id);
+                          deleteComment(comment.id);
                         }}
                       >
                         DELETE
@@ -117,10 +104,7 @@ const Comments = (props) => {
                   </ListGroupItem>
                 );
               })}
-              <AddComment
-                id={props.movieForComment}
-                onLoad={afterLoad}
-              ></AddComment>
+              <AddComment id={id} onLoad={afterLoad}></AddComment>
             </ListGroup>
           </Col>
         </Row>

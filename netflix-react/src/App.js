@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MovieDetails from "./Components/MovieDetails";
 import NotFound from "./Components/NotFound.jsx";
 import CarouselParentTvShows from "./Components/CarouselParentTvShows";
+import BackOffice from "./Components/BackOffice.jsx";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <div>
           <Routes>
             <Route element={<CarouselParent />} path="/" />
+            <Route element={<BackOffice />} path="/back" />
             <Route element={<CarouselParent />} path="/movies" />
             <Route element={<MovieDetails />} path="/details/:movieId" />
             <Route element={<CarouselParentTvShows />} path="/TV-Shows"></Route>

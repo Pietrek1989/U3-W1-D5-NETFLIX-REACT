@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import ErrorNetflix from "./ErrorNetflix";
 import LoadingNetflix from "./LoadingNetflix";
 import Comments from "./Comments";
 
 const MovieDetails = () => {
-  const link = "http://www.omdbapi.com/?apikey=4f6eac88&i=";
+  const link = process.env.REACT_APP_BE_URL;
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -16,7 +16,7 @@ const MovieDetails = () => {
 
   const fetchMovies = async () => {
     try {
-      let response = await fetch(link + id);
+      let response = await fetch(link + "/" + id);
 
       if (response.ok) {
         let data = await response.json();
@@ -44,7 +44,7 @@ const MovieDetails = () => {
   return (
     <>
       {isError && <ErrorNetflix errorMessage={errorMessage}></ErrorNetflix>}
-      <h1 className="text-light font-italic mb-5">{movies.Title}</h1>
+      <h1 className="text-light font-italic mb-5">{movies.title}</h1>
 
       <Row className="justify-content-center" id="movie-detail-img">
         {isLoading ? (
@@ -58,9 +58,9 @@ const MovieDetails = () => {
               md={4}
               className="d-flex justify-content-center flex-column"
             >
-              <div className="d-flex flex-row align-items-start justify-content-between text-light ">
+              {/* <div className="d-flex flex-row align-items-start justify-content-between text-light ">
                 <p className="text-light">
-                  {/* <i className="fab fa-imdb mr-3"></i> */}
+                  <i className="fab fa-imdb mr-3"></i>
                   IMDB: {movies.imdbRating}
                 </p>
                 <p>
@@ -70,8 +70,8 @@ const MovieDetails = () => {
                 <p>
                   {movies.Ratings[2].Source} : {movies.Ratings[2].Value}
                 </p>
-              </div>
-              <img className="movie-cover" src={movies.Poster} alt="poster" />
+              </div> */}
+              <img className="movie-cover" src={movies.poster} alt="poster" />
             </Col>
           </>
         )}
@@ -81,15 +81,15 @@ const MovieDetails = () => {
           md={4}
           className="d-flex justify-content-center flex-column text-center"
         >
-          <h5 className="text-light">{movies.Plot}</h5>
+          {/* <h5 className="text-light">{movies.Plot}</h5>
           <p className="text-light">
             <strong>Director :</strong> {movies.Director}
           </p>
           <p className="text-light">
             <strong>Actors :</strong> {movies.Actors}
-          </p>
+          </p> */}
           <p className="text-light">
-            <strong>Genre :</strong> {movies.Genre}
+            <strong>Genre :</strong> {movies.category}
           </p>
         </Col>
       </Row>
