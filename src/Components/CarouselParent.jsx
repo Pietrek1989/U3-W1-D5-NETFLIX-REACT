@@ -9,7 +9,7 @@ const CarouselParent = () => {
 
       <div id="carousel-parent">
         <CarouselRow
-          titleOf="Fantasy"
+          titleOf="fantasy"
           link={process.env.REACT_APP_BE_URL}
         ></CarouselRow>
         {/* <CarouselRow

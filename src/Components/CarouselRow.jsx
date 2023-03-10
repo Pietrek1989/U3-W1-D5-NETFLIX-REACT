@@ -3,16 +3,65 @@ import { Carousel } from "react-bootstrap";
 import ErrorNetflix from "./ErrorNetflix";
 import LoadingNetflix from "./LoadingNetflix";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CarouselRow = (props) => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isErorr, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const searchResult = useSelector((state) => state.search.searchList);
 
   const fetchMovies = async () => {
     try {
-      let response = await fetch(props.link);
+      let link = props.link;
+      let response = await fetch(link + "?category=" + props.titleOf);
+
+      if (response.ok) {
+        let data = await response.json();
+        console.log(data);
+        setMovies(data);
+        setIsLoading(false);
+      } else {
+        setIsLoading(false);
+
+        // eslint-disable-next-line no-throw-literal
+        throw response.status + " " + response.statusText;
+      }
+    } catch (error) {
+      setIsLoading(false);
+      setIsError(true);
+      setErrorMessage(error);
+    }
+  };
+  const fetchMoviesSearched = async () => {
+    try {
+      console.log(searchResult);
+      let link = props.link + "?title=" + searchResult;
+      let response = await fetch(link);
+
+      if (response.ok) {
+        let data = await response.json();
+        console.log(data);
+        setMovies(data);
+        setIsLoading(false);
+      } else {
+        setIsLoading(false);
+
+        // eslint-disable-next-line no-throw-literal
+        throw response.status + " " + response.statusText;
+      }
+    } catch (error) {
+      setIsLoading(false);
+      setIsError(true);
+      setErrorMessage(error);
+    }
+  };
+  const fetchMovieIMDB = async () => {
+    try {
+      console.log(searchResult);
+      let link = props.link + "?title=" + searchResult;
+      let response = await fetch(link);
 
       if (response.ok) {
         let data = await response.json();
@@ -36,6 +85,16 @@ const CarouselRow = (props) => {
     fetchMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    const filteredMovies = movies.filter((movie) =>
+      movie.title.toLowerCase().includes(searchResult.toLowerCase())
+    );
+    if (filteredMovies.includes(searchResult)) {
+      fetchMoviesSearched();
+    } else {
+      fetchMovieIMDB();
+    } // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchResult]);
 
   return (
     <>

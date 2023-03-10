@@ -1,11 +1,31 @@
-import { NavDropdown, Nav, Navbar, InputGroup, Form } from "react-bootstrap";
+import { useState } from "react";
+import {
+  NavDropdown,
+  Nav,
+  Navbar,
+  InputGroup,
+  Form,
+  Button,
+} from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { getSearchResultActionAsync } from "../redux/actions";
 
 const NavBar = (props) => {
+  const [searchValue, setSearchValue] = useState(" ");
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const section = location.pathname;
   const search = `Search in ${section} `;
+
+  // document
+  //   .querySelector("#search-field")
+  //   .addEventListener("keydown", function (event) {
+  //     if (event.key === "Enter") {
+  //       dispatch(getSearchResultActionAsync(searchValue));
+  //     }
+  //   });
 
   return (
     <Navbar collapseOnSelect expand="lg" width="100" className="mr-2">
@@ -52,7 +72,10 @@ const NavBar = (props) => {
 
           <Nav.Link>
             <InputGroup size="sm" className="mb-3 mt-3">
-              <InputGroup.Text id="inputGroup-sizing-sm">
+              <InputGroup.Text
+                id="inputGroup-sizing-sm"
+                onClick={dispatch(getSearchResultActionAsync(searchValue))}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -66,9 +89,13 @@ const NavBar = (props) => {
               </InputGroup.Text>
               <Form.Control
                 id="search-field"
-                aria-label="Search"
-                aria-describedby="inputGroup-sizing-sm"
+                aria-label="textarea"
+                category="textarea"
                 placeholder={search}
+                value={searchValue}
+                onChange={(e) => {
+                  setSearchValue(e.target.value);
+                }}
               />
             </InputGroup>
           </Nav.Link>
