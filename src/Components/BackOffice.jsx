@@ -17,17 +17,17 @@ const BackOffice = () => {
   const postMovies = async (e) => {
     e.preventDefault();
     try {
-      //   const movie = {
-      //     title: document.querySelector("#Title").value,
-      //     year: document.querySelector("#Year").value,
-      //     category: document.querySelector("#Category").value,
-      //     poster: document.querySelector("#Poster").value,
-      //   };
+      const movie = {
+        title: document.querySelector("#Title").value,
+        year: document.querySelector("#Year").value,
+        category: document.querySelector("#Category").value,
+        poster: document.querySelector("#Poster").value,
+      };
       console.log(movieState);
       let res = await fetch(url, {
         headers,
         method: "POST",
-        body: JSON.stringify(movieState),
+        body: JSON.stringify(movie),
       });
       if (res.ok) {
       } else {
@@ -40,6 +40,12 @@ const BackOffice = () => {
     }
   };
 
+  const handleEdit = (id) => {
+    editEvent(id);
+  };
+  const handleDelete = (id) => {
+    deleteEvent(id);
+  };
   const editMovies = (e) => {
     e.preventDefault();
     const genre = document.getElementById("inputState").value;
@@ -56,22 +62,22 @@ const BackOffice = () => {
       .catch((error) => console.log(error));
   };
 
-  const renderGenre = async (movies) => {
-    let container = document.getElementById("list-movies");
-    await movies.forEach((singleMovie) => {
-      container.innerHTML += `
-    <div class="d-flex justify-content-between flex-row">
-      <div class="d-flex justify-content-between flex-row align-items-center w-50">
-        <li id="${singleMovie.imdbID}" class="d-flex justify-content-between edit-list text-light">${singleMovie.title}</li>
-        <img class="img-small-cover" src="${singleMovie.poster}">
-      </div>
-      <div class="d-flex justify-content-around w-50">
-      <button class="btn-success" onclick='editEvent(${singleMovie.imdbID})'>Edit id:${singleMovie.imdbID}</button> 
-      <button class="btn-danger" onclick='deleteEvent("${singleMovie.imdbID}")'>remove id:${singleMovie.imdbID}</button>
-      </div>
-      </div>`;
-    });
-  };
+  // const renderGenre = async (movies) => {
+  //   let container = document.getElementById("list-movies");
+  //   await movies.forEach((singleMovie) => {
+  //     container.innerHTML += `
+  //   <div class="d-flex justify-content-between flex-row">
+  //     <div class="d-flex justify-content-between flex-row align-items-center w-50">
+  //       <li id="${singleMovie.imdbID}" class="d-flex justify-content-between edit-list text-light">${singleMovie.title}</li>
+  //       <img class="img-small-cover" src="${singleMovie.poster}">
+  //     </div>
+  //     <div class="d-flex justify-content-around w-50">
+  //     <button class="btn-success" onclick='editEvent(${singleMovie.imdbID})'>Edit id:${singleMovie.imdbID}</button>
+  //     <button class="btn-danger" onclick='deleteEvent("${singleMovie.imdbID}")'>remove id:${singleMovie.imdbID}</button>
+  //     </div>
+  //     </div>`;
+  //   });
+  // };
 
   const deleteEvent = async (id) => {
     try {
@@ -97,7 +103,9 @@ const BackOffice = () => {
       await console.log(data);
       await getMovieToEdit(data);
       let buttonContainer = document.getElementById("buttons");
-      buttonContainer.innerHTML += `<button category="submit" className="btn btn-primary" onClick="editFinal('${data.imdbID}')">EDIT</button>`;
+      buttonContainer.innerHTML += `<button category="submit" class="btn btn-primary" onclick=${editFinal(
+        data.imdbID
+      )}>EDIT</button>`;
     } catch (error) {
       console.log(error);
     }
@@ -149,66 +157,22 @@ const BackOffice = () => {
       <div className="container backoffice-form-container">
         <div className="form-group">
           <label for="exampleFormControlInput1">Title</label>
-          <input
-            category="text"
-            className="form-control"
-            id="Title"
-            value={movieState.title}
-            onChange={(e) => {
-              setMovieState({
-                ...movieState,
-                title: e.target.value,
-              });
-            }}
-          />
+          <input category="text" className="form-control" id="Title" />
         </div>
 
         <div className="form-group">
           <div className="form-group">
             <label for="exampleFormControlInput1">Year</label>
-            <input
-              category="text"
-              className="form-control"
-              id="Year"
-              value={movieState.year}
-              onChange={(e) => {
-                setMovieState({
-                  ...movieState,
-                  year: e.target.value,
-                });
-              }}
-            />
+            <input category="text" className="form-control" id="Year" />
           </div>
         </div>
         <div className="form-group">
           <label for="exampleFormControlInput1">Category</label>
-          <input
-            category="text"
-            className="form-control"
-            id="Category"
-            value={movieState.category}
-            onChange={(e) => {
-              setMovieState({
-                ...movieState,
-                category: e.target.value,
-              });
-            }}
-          />
+          <input category="text" className="form-control" id="Category" />
         </div>
         <div className="form-group">
           <label for="exampleFormControlInput1">Poster</label>
-          <input
-            category="text"
-            className="form-control"
-            id="Poster"
-            value={movieState.poster}
-            onChange={(e) => {
-              setMovieState({
-                ...movieState,
-                poster: e.target.value,
-              });
-            }}
-          />
+          <input category="text" className="form-control" id="Poster" />
         </div>
         <div id="buttons" className="my-4">
           <button
@@ -260,13 +224,13 @@ const BackOffice = () => {
                     <div className="d-flex justify-content-around w-50">
                       <button
                         className="btn-success"
-                        onclick={editEvent(singleMovie.imdbID)}
+                        onClick={() => handleEdit(singleMovie.imdbID)}
                       >
                         Edit id:{singleMovie.imdbID}
                       </button>
                       <button
                         className="btn-danger"
-                        onclick={deleteEvent(singleMovie.imdbID)}
+                        onClick={() => handleDelete(singleMovie.imdbID)}
                       >
                         remove id:{singleMovie.imdbID}
                       </button>
