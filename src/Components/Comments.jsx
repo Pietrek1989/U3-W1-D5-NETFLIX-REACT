@@ -72,7 +72,7 @@ const Comments = (props) => {
             <i className="bi bi-stars"></i>Movie Reviews
           </h2>
         </div>
-        <Row className="justify-content-center my-5">
+        <Row className="justify-content-center my-5 comment-section">
           <Col lg={8}>
             <ListGroup>
               {comments.map((comment) => {

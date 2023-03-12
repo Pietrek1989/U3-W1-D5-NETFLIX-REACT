@@ -5,6 +5,7 @@ const BackOffice = () => {
   const headers = {
     "Content-Type": "application/json",
   };
+  const [genreMovies, setgenreMovies] = useState([]);
   const [movieState, setMovieState] = useState({
     title: "",
     year: 2011,
@@ -48,7 +49,9 @@ const BackOffice = () => {
       .then((data) => {
         console.log(data);
 
-        renderGenre(data);
+        // renderGenre(data);
+        setgenreMovies(data);
+        console.log(genreMovies);
       })
       .catch((error) => console.log(error));
   };
@@ -57,15 +60,15 @@ const BackOffice = () => {
     let container = document.getElementById("list-movies");
     await movies.forEach((singleMovie) => {
       container.innerHTML += `
-    <div className="d-flex justify-content-between flex-row">
-      <div className="d-flex justify-content-between flex-row align-items-center w-50">
-        <li id="${singleMovie.imdbID}" className="d-flex justify-content-between edit-list">${singleMovie.title}</li>
-        <img className="img-small-cover" src="${singleMovie.poster}">
+    <div class="d-flex justify-content-between flex-row">
+      <div class="d-flex justify-content-between flex-row align-items-center w-50">
+        <li id="${singleMovie.imdbID}" class="d-flex justify-content-between edit-list text-light">${singleMovie.title}</li>
+        <img class="img-small-cover" src="${singleMovie.poster}">
       </div>
-      <div className="d-flex justify-content-around w-50">
-      <button class="btn-success" onclick='editEvent("${singleMovie.imdbID}")'>Edit id:${singleMovie.imdbID}</button> 
-      <button class="btn-danger" onclick='${deleteEvent}("${singleMovie.imdbID}")'>remove id:${singleMovie.imdbID}</button></li>
-       </div>
+      <div class="d-flex justify-content-around w-50">
+      <button class="btn-success" onclick='editEvent(${singleMovie.imdbID})'>Edit id:${singleMovie.imdbID}</button> 
+      <button class="btn-danger" onclick='deleteEvent("${singleMovie.imdbID}")'>remove id:${singleMovie.imdbID}</button>
+      </div>
       </div>`;
     });
   };
@@ -94,7 +97,7 @@ const BackOffice = () => {
       await console.log(data);
       await getMovieToEdit(data);
       let buttonContainer = document.getElementById("buttons");
-      buttonContainer.innerHTML += `<button category="submit" className="btn btn-primary" onClick=${editFinal}("${data.imdbID}")' >EDIT</button>`;
+      buttonContainer.innerHTML += `<button category="submit" className="btn btn-primary" onClick="editFinal('${data.imdbID}')">EDIT</button>`;
     } catch (error) {
       console.log(error);
     }
@@ -143,7 +146,7 @@ const BackOffice = () => {
   return (
     <>
       <div id="error-container"></div>
-      <div className="container">
+      <div className="container backoffice-form-container">
         <div className="form-group">
           <label for="exampleFormControlInput1">Title</label>
           <input
@@ -236,7 +239,43 @@ const BackOffice = () => {
           </div>
         </div>
         <div>
-          <ul id="list-movies" className="d-flex flex-column"></ul>
+          <ul id="list-movies" className="d-flex flex-column">
+            {genreMovies &&
+              genreMovies.map((singleMovie) => {
+                return (
+                  <div className="d-flex justify-content-between flex-row">
+                    <div className="d-flex justify-content-between flex-row align-items-center w-50">
+                      <li
+                        id={singleMovie.imdbID}
+                        className="d-flex justify-content-between edit-list text-light"
+                      >
+                        {singleMovie.title}
+                      </li>
+                      <img
+                        className="img-small-cover"
+                        src={singleMovie.poster}
+                        alt="poster"
+                      />
+                    </div>
+                    <div className="d-flex justify-content-around w-50">
+                      <button
+                        className="btn-success"
+                        onclick={editEvent(singleMovie.imdbID)}
+                      >
+                        Edit id:{singleMovie.imdbID}
+                      </button>
+                      <button
+                        className="btn-danger"
+                        onclick={deleteEvent(singleMovie.imdbID)}
+                      >
+                        remove id:{singleMovie.imdbID}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            ;
+          </ul>
         </div>
       </div>
     </>

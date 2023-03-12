@@ -327,11 +327,12 @@ h6 {
   width: 200px;
 }
 .img-small-cover {
-  height: 100px;
-  width: 75px;
+  height: 100px !important;
+  width: 75px !important;
 }
 #list-movies button {
   height: 20%;
+  padding-bottom: 1.5em;
 }
 #list-movies {
   display: flex;
@@ -501,4 +502,11 @@ h1 {
 
 .form-group label {
   color: white;
+}
+
+.comment-section {
+  padding-bottom: 7em;
+}
+.backoffice-form-container {
+  padding-bottom: 7em;
 }

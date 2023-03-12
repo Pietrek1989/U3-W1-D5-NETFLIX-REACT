@@ -91,6 +91,11 @@ const MovieDetails = () => {
           <p className="text-light">
             <strong>Genre :</strong> {movies.category}
           </p>
+          <p className="text-light">
+            <strong className="text-align-center">Story:</strong>
+            <br></br>
+            {movies.story}{" "}
+          </p>
         </Col>
       </Row>
       <Comments id={id} movieForComment={movies}></Comments>

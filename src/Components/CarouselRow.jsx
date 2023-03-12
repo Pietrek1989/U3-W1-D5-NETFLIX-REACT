@@ -205,7 +205,6 @@ const CarouselRow = (props) => {
                 </div>
               );
             })}
-          =
         </Carousel.Item>
 
         <Carousel.Item className="section" id="section3">
@@ -258,7 +257,6 @@ const CarouselRow = (props) => {
                 </div>
               );
             })}
-          =
         </Carousel.Item>
       </Carousel>
     </>
