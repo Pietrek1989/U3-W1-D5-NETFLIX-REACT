@@ -12,14 +12,14 @@ const CarouselParent = () => {
           titleOf="fantasy"
           link={process.env.REACT_APP_BE_URL}
         ></CarouselRow>
-        {/* <CarouselRow
-          titleOf="Matrix"
-          link="https://www.omdbapi.com/?apikey=4f6eac88&s=matrix"
+        <CarouselRow
+          titleOf="comedy"
+          link={process.env.REACT_APP_BE_URL}
         ></CarouselRow>
         <CarouselRow
-          titleOf="Star Wars"
-          link="https://www.omdbapi.com/?apikey=4f6eac88&s=star%20wars"
-        ></CarouselRow> */}
+          titleOf="fantasy"
+          link={process.env.REACT_APP_BE_URL}
+        ></CarouselRow>
       </div>
     </div>
   );

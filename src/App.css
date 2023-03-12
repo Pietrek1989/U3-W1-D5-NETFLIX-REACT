@@ -370,6 +370,8 @@ h6 {
 }
 .footer {
   background-color: #141414;
+  position: relative;
+  bottom: 8em;
 }
 
 #section-name-lower {
@@ -478,6 +480,7 @@ h1 {
 }
 #carousel-parent {
   overflow: hidden;
+  padding-bottom: 12em;
 }
 
 .wrapper {
