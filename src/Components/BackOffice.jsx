@@ -6,13 +6,6 @@ const BackOffice = () => {
     "Content-Type": "application/json",
   };
   const [genreMovies, setgenreMovies] = useState([]);
-  const [movieState, setMovieState] = useState({
-    title: "",
-    year: 2011,
-    type: "movie",
-    category: "",
-    poster: "",
-  });
 
   const postMovies = async (e) => {
     e.preventDefault();
@@ -23,7 +16,6 @@ const BackOffice = () => {
         category: document.querySelector("#Category").value,
         poster: document.querySelector("#Poster").value,
       };
-      console.log(movieState);
       let res = await fetch(url, {
         headers,
         method: "POST",
@@ -50,7 +42,7 @@ const BackOffice = () => {
     e.preventDefault();
     const genre = document.getElementById("inputState").value;
     console.log(genre);
-    fetch(`http://localhost:3001/movies?category=${genre}`)
+    fetch(`https://magenta-snail-kit.cyclic.app/movies?category=${genre}`)
       .then((dataRaw) => dataRaw.json())
       .then((data) => {
         console.log(data);
@@ -62,29 +54,15 @@ const BackOffice = () => {
       .catch((error) => console.log(error));
   };
 
-  // const renderGenre = async (movies) => {
-  //   let container = document.getElementById("list-movies");
-  //   await movies.forEach((singleMovie) => {
-  //     container.innerHTML += `
-  //   <div class="d-flex justify-content-between flex-row">
-  //     <div class="d-flex justify-content-between flex-row align-items-center w-50">
-  //       <li id="${singleMovie.imdbID}" class="d-flex justify-content-between edit-list text-light">${singleMovie.title}</li>
-  //       <img class="img-small-cover" src="${singleMovie.poster}">
-  //     </div>
-  //     <div class="d-flex justify-content-around w-50">
-  //     <button class="btn-success" onclick='editEvent(${singleMovie.imdbID})'>Edit id:${singleMovie.imdbID}</button>
-  //     <button class="btn-danger" onclick='deleteEvent("${singleMovie.imdbID}")'>remove id:${singleMovie.imdbID}</button>
-  //     </div>
-  //     </div>`;
-  //   });
-  // };
-
   const deleteEvent = async (id) => {
     try {
-      let res = await fetch("http://localhost:3001/movies/" + id, {
-        headers,
-        method: "DELETE",
-      });
+      let res = await fetch(
+        "https://magenta-snail-kit.cyclic.app/movies/" + id,
+        {
+          headers,
+          method: "DELETE",
+        }
+      );
       if (res.ok) {
       }
     } catch (error) {
@@ -190,7 +168,7 @@ const BackOffice = () => {
               <select id="inputState" className="form-control">
                 <option selected>Choose a genre to edit</option>
                 <option id="genre-action">fantasy</option>
-                <option id="genre-horror">horror</option>
+                <option id="genre-horror">comedy</option>
               </select>
               <button
                 category="submit"

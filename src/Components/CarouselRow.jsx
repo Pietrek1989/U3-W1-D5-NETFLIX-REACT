@@ -91,7 +91,7 @@ const CarouselRow = (props) => {
     // if (filteredMovies.includes(searchResult)) {
     if (searchResult.length > 1) {
       fetchMoviesSearched();
-    }
+    } else if (searchResult.length === 0) fetchMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchResult]);
 
