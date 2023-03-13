@@ -5,7 +5,7 @@ import LoadingNetflix from "./LoadingNetflix";
 import AddComment from "./AddComment";
 
 const Comments = (props) => {
-  const linkComments = "http://localhost:3001/reviews/";
+  const linkComments = "https://magenta-snail-kit.cyclic.app/reviews/";
   let counter = 0;
   const [comments, setComments] = useState([]);
   //   const [currentComment, setComment] = useState([]);
