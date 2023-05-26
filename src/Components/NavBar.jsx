@@ -37,14 +37,7 @@ const NavBar = (props) => {
               id={location.pathname === "/movies" ? "active" : ""}
             ></div>
           </Link>
-          <Link to="/TV-Shows">
-            <div
-              className="nav-link"
-              id={location.pathname === "/TV-Shows" ? "active" : ""}
-            >
-              TV-Shows
-            </div>
-          </Link>
+
           <Link to="/back">
             <div
               className="nav-link"
