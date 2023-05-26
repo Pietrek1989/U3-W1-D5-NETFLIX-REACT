@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Pietrek1989/U3-W2-D3-NETFLIX-REACT-ROUTERS/static/css/main.913b21ce.css",
+    "main.js": "/Pietrek1989/U3-W2-D3-NETFLIX-REACT-ROUTERS/static/js/main.b6c004c1.js",
+    "static/media/NetflixSans-Regular.otf": "/Pietrek1989/U3-W2-D3-NETFLIX-REACT-ROUTERS/static/media/NetflixSans-Regular.34b07abc629b899d2ec0.otf",
+    "static/media/avatar.png": "/Pietrek1989/U3-W2-D3-NETFLIX-REACT-ROUTERS/static/media/avatar.488b77fa282e64032048.png",
+    "static/media/netflix_logo.png": "/Pietrek1989/U3-W2-D3-NETFLIX-REACT-ROUTERS/static/media/netflix_logo.f4070143e1f521da82a1.png",
+    "index.html": "/Pietrek1989/U3-W2-D3-NETFLIX-REACT-ROUTERS/index.html",
+    "main.913b21ce.css.map": "/Pietrek1989/U3-W2-D3-NETFLIX-REACT-ROUTERS/static/css/main.913b21ce.css.map",
+    "main.b6c004c1.js.map": "/Pietrek1989/U3-W2-D3-NETFLIX-REACT-ROUTERS/static/js/main.b6c004c1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.913b21ce.css",
+    "static/js/main.b6c004c1.js"
+  ]
+}
